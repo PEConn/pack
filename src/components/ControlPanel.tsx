@@ -1,4 +1,5 @@
-import React, { MouseEvent } from 'react';
+import React, { useState } from 'react';
+import { Button } from './Button';
 
 type ControlPanelProps = {
   currentName: string,
@@ -6,46 +7,41 @@ type ControlPanelProps = {
   prev: () => void,
   markPacked: () => void,
   markUnneeded: () => void,
+  togglePacked: () => void,
+  toggleDontNeed: () => void,
 }
 
-function ControlPanel({ currentName, next, prev, markPacked, markUnneeded }: ControlPanelProps) {
+function ControlPanel({
+  currentName,
+  next, prev,
+  markPacked, markUnneeded,
+  togglePacked, toggleDontNeed
+}: ControlPanelProps) {
   // TODO: Split out current item from control panel?
+  const [showSettings, setShowSettings] = useState(false);
+
   return (
     <>
-      <div className="center-content">
-        <p className="current-item">
-        {currentName}
-        </p>
+      <div>
+        <div className="center-content">
+          <p className="cog" onClick={() => { setShowSettings(!showSettings)}}>⚙️</p>
+          <p className="current-item">
+          {currentName}
+          </p>
+        </div>
       </div>
-      <div className="control-panel">
+      {!showSettings && (<div className="control-panel">
         <Button label="Prev"       action={prev} />
         <Button label="Next"       action={next} />
         <Button label="Don't Need" action={markUnneeded} />
         <Button label="Packed"     action={markPacked} />
-      </div>
+      </div>)}
+      {showSettings && (<div className="control-panel">
+        <Button label="Toggle Packed" action={togglePacked} small={true} />
+        <Button label="Toggle Don't Need" action={toggleDontNeed} small={true} />
+      </div>)}
     </>
   );
-}
-
-
-// TODO: Move button into a separate file.
-type ButtonProps = {
-  label: string,
-  action: () => void,
-  small?: boolean,
-}
-
-export function Button({ label, action, small }: ButtonProps) {
-  const onClick = (event: MouseEvent<HTMLButtonElement>) => {
-    action();
-    event.preventDefault();
-  }
-
-  return (
-    <button onClick={onClick} className={small ? "small" : ""}>
-      {label}
-    </button>
-  )
 }
 
 export default ControlPanel;

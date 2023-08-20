@@ -112,6 +112,8 @@ function App() {
 
 function CheckList({ selected, items, setItems }) {
   const [index, setIndex] = useState(0);
+  const [hidePacked, setHidePacked] = useState(false);
+  const [hideDontNeed, setHideDontNeed] = useState(false);
 
   const nextItem = () => {
     for (let i = 1; i < items.length; i++) {
@@ -123,9 +125,8 @@ function CheckList({ selected, items, setItems }) {
     }
   }
   const prevItem = () => {
-    setIndex((index - 1 + items.length) % items.length);
     for (let i = 1; i < items.length; i++) {
-      const item = (index - i) % items.length;
+      const item = (index - i + items.length) % items.length;
       if (items[item].state === ItemState.ToDo) {
         setIndex(item);
         break;
@@ -143,12 +144,17 @@ function CheckList({ selected, items, setItems }) {
     nextItem();
   }
 
+  const togglePacked = () => { setHidePacked(!hidePacked); }
+  const toggleDontNeed = () => { setHideDontNeed(!hideDontNeed); }
+
   return (
     <>
       <ItemList
         items={items}
         currentIndex={index}
         setIndex={setIndex}
+        hidePacked={hidePacked}
+        hideDontNeed={hideDontNeed}
         />
       <ControlPanel
         currentName={items[index].name}
@@ -156,6 +162,8 @@ function CheckList({ selected, items, setItems }) {
         prev={prevItem}
         markPacked={markPacked}
         markUnneeded={markUnneeded}
+        togglePacked={togglePacked}
+        toggleDontNeed={toggleDontNeed}
         />
     </>
   );

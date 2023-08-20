@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { allLists } from '../model/Lists';
-import { Button } from './ControlPanel';
+import { Button } from './Button';
 
 function getClassName(listName: string, selected: string[]): string {
   if (selected.includes(listName)) {

@@ -85,11 +85,20 @@ p.current-item {
   margin-top: 25px;
 }
 
+.cog {
+  font-size: 2em;
+  float: right;
+  position: absolute;
+  margin: 0px;
+  text-align: right;
+}
+
 .scrollable {
   border: thick solid var(--border-color);
   padding: 0px;
   margin: 0px;
   
+  min-height: 60vh;
   overflow-y: scroll;
 }
 
