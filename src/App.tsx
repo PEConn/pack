@@ -94,9 +94,13 @@ function App() {
     save("items", JSON.stringify(items));
   }
 
+  const base = import.meta.env.BASE_URL;
+
+  console.log(base);
+
   return (
     <>
-      <Router>
+      <Router basename={base}>
         <Routes>
           <Route path="/"
             element={
