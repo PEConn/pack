@@ -1,0 +1,119 @@
+/* TODO: Split this up. */
+
+:root {
+  --text-color: #100B32;
+  --bg-color: #eefff8;
+  --border-color: #100B32;
+  --selected-color: #F18F01;
+  --button-hover-color: #90A2E0;
+  --button-shadow-color: #FF331F;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #FBFBFF;
+    --bg-color: #100B32;
+    --border-color: #FBFBFF;
+    --button-hover-color: #657ED4;
+    --button-shadow-color: #FF331F;
+  }
+}
+
+* {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: large;
+}
+
+#root {
+  padding: 10px;
+  max-width: 600px;
+  margin: 0px auto;
+  
+  /* Default */
+  max-height: 100vh;
+  /* Fully updating: */
+  max-height: var(--vh, 100vh);
+  
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.center-content {
+  text-align: center;
+}
+
+li {
+  font-size: 2em;
+  padding: 12px 20px;
+  list-style-position: inside;
+}
+
+li.unselected, li.dont-need {
+  list-style-type: "❌ ";
+  color: grey;
+}
+
+li.selected {
+  list-style-type: "✅ ";
+}
+
+li.packed {
+  list-style-type: "✅ ";
+  color: grey;
+}
+
+li.undecided {
+  list-style-type: "❓ ";
+}
+
+li.currently-focused {
+  background-color: var(--selected-color);
+}
+
+p.current-item {
+  font-size: 2em;
+  margin: 15px;
+  margin-top: 25px;
+}
+
+.scrollable {
+  border: thick solid var(--border-color);
+  padding: 0px;
+  margin: 0px;
+  
+  overflow-y: scroll;
+}
+
+.control-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+button {
+  background-color: var(--bg-color);
+  border: thick solid var(--border-color);
+  margin: 15px;
+  padding: 10px 15px;
+  font-size: 2em;
+  cursor: pointer;
+  filter: drop-shadow(8px 8px 0px var(--button-shadow-color));
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+}
+
+button:active {
+  /* Push the button in, keep the shadow in place. */
+  transform: translate(4px, 4px);
+  filter: drop-shadow(4px 4px 0px var(--button-shadow-color));
+}
