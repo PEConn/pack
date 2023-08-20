@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build_with_base": "vite build --base=/pack/"
   },
   "dependencies": {
     "immer": "^9.0.12",
