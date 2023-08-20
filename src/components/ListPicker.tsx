@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { allLists } from '../model/Lists';
 import { Button } from './Button';
 
@@ -12,7 +12,7 @@ function getClassName(listName: string, selected: string[]): string {
 }
 
 function ListPicker({ selected, setSelected }) {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const toggle = (listName: string) => {
     if (selected.includes(listName)) {
@@ -23,7 +23,7 @@ function ListPicker({ selected, setSelected }) {
   }
 
   const done = () => {
-    history.push("/check");
+    navigate("/check");
   }
 
   return (

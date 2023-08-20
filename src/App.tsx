@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
-import produce from "immer";
+import { produce } from "immer";
 import './App.css';
 
 import ControlPanel from "./components/ControlPanel";
@@ -97,14 +97,17 @@ function App() {
   return (
     <>
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <ListPicker selected={lists} setSelected={setLists}/>
-          </Route>
-          <Route path="/check">
-            <CheckList selected={lists} items={items} setItems={setItems}/>
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/"
+            element={
+              <ListPicker selected={lists} setSelected={setLists} />
+            } />
+
+          <Route path="/check"
+            element={
+              <CheckList selected={lists} items={items} setItems={setItems}/>
+          } />
+        </Routes>
       </Router>
     </>
   );
