@@ -18,9 +18,9 @@
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react": "^1.0.7",
-    "vite": "^2.8.0",
-    "vite-plugin-pwa": "^0.11.13",
-    "workbox-precaching": "^6.4.2"
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.9",
+    "vite-plugin-pwa": "^0.16.4",
+    "workbox-precaching": "^7.0.0"
   }
 }
