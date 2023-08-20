@@ -242,7 +242,7 @@ export const lists :{ [key: string]: string[] } = {
         "cycle overshoes",
         "cycle socks",
         "cycle cap",
-        "sunglasses",
+        "cycle sunglasses",
         "helmet",
         "tyre patches",
         "bike water bottles",
