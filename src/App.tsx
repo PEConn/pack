@@ -112,13 +112,25 @@ function App() {
 
 function CheckList({ selected, items, setItems }) {
   const [index, setIndex] = useState(0);
-  // const [items, setItems] = useState(mergeLists(selected));
 
   const nextItem = () => {
-    setIndex((index + 1) % items.length);
+    for (let i = 1; i < items.length; i++) {
+      const item = (index + i) % items.length;
+      if (items[item].state === ItemState.ToDo) {
+        setIndex(item);
+        break;
+      }
+    }
   }
   const prevItem = () => {
     setIndex((index - 1 + items.length) % items.length);
+    for (let i = 1; i < items.length; i++) {
+      const item = (index - i) % items.length;
+      if (items[item].state === ItemState.ToDo) {
+        setIndex(item);
+        break;
+      }
+    }
   }
   const markPacked = () => {
     setItems(updateItem(items, index, ItemState.Packed));

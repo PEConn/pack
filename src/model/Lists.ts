@@ -4,7 +4,7 @@ export const lists :{ [key: string]: string[] } = {
     "Travel Aids": [
         'books',
         'bottled water',
-        'chrewing gum',
+        'chewing gum',
         'earplugs',
         'notebook & pen',
         'sleeping mask',

@@ -1,5 +1,4 @@
 import React, { MouseEvent } from 'react';
-import './ControlPanel.css';
 
 type ControlPanelProps = {
   currentName: string,
@@ -33,16 +32,17 @@ function ControlPanel({ currentName, next, prev, markPacked, markUnneeded }: Con
 type ButtonProps = {
   label: string,
   action: () => void,
+  small?: boolean,
 }
 
-export function Button({ label, action }: ButtonProps) {
+export function Button({ label, action, small }: ButtonProps) {
   const onClick = (event: MouseEvent<HTMLButtonElement>) => {
     action();
     event.preventDefault();
   }
 
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} className={small ? "small" : ""}>
       {label}
     </button>
   )
