@@ -231,7 +231,36 @@ export const lists :{ [key: string]: string[] } = {
         'thermal top',
         'thermos',
     ],
+
+    "Cycling": [
+        "cycle jacket",
+        "cycle shirts",
+        "cycle shorts",
+        "base layer",
+        "waterproof trousers",
+        "bike shoes",
+        "cycle overshoes",
+        "cycle socks",
+        "cycle cap",
+        "sunglasses",
+        "helmet",
+        "tyre patches",
+        "bike water bottles",
+        "chain lube",
+        "spare inner tubes",
+        "minipump",
+        "tyre levers",
+        "multitool",
+        "headlight",
+        "tail light",
+        "bike light chargers",
+        "gels",
+        "cereal bars",
+        "spare water bottle",
+    ]
 }
+
+
 
 export const allLists = Object.keys(lists);
 
