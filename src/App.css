@@ -27,15 +27,26 @@
   font-size: large;
 }
 
+html, 
+body {
+    height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #root {
   padding: 10px;
   max-width: 600px;
   margin: 0px auto;
   
   /* Default */
-  max-height: 100vh;
+  max-height: 90vh;
   /* Fully updating: */
-  max-height: var(--vh, 100vh);
+  max-height: var(--vh, 90vh);
   
   display: flex;
   flex-direction: column;
@@ -98,7 +109,7 @@ p.current-item {
   padding: 0px;
   margin: 0px;
   
-  min-height: 60vh;
+  min-height: 50vh;
   overflow-y: scroll;
 }
 

@@ -270,6 +270,7 @@ export const defaultNotSelected: string[] = [
     "Clothes - Formal (women)",
     "Clothes - Basic (women)",
     "Make-up",
+    "Cycling"
 ];
 export const defaultSelection: string[] = allLists.filter(item =>
     !defaultNotSelected.includes(item)
