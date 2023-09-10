@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
 } from "react-router-dom";
-import produce from "immer";
+import { produce } from "immer";
 import './App.css';
 
 import ControlPanel from "./components/ControlPanel";
@@ -94,17 +94,24 @@ function App() {
     save("items", JSON.stringify(items));
   }
 
+  const base = import.meta.env.BASE_URL;
+
+  console.log(base);
+
   return (
     <>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <ListPicker selected={lists} setSelected={setLists}/>
-          </Route>
-          <Route path="/check">
-            <CheckList selected={lists} items={items} setItems={setItems}/>
-          </Route>
-        </Switch>
+      <Router basename={base}>
+        <Routes>
+          <Route path="/"
+            element={
+              <ListPicker selected={lists} setSelected={setLists} />
+            } />
+
+          <Route path="/check"
+            element={
+              <CheckList selected={lists} items={items} setItems={setItems}/>
+          } />
+        </Routes>
       </Router>
     </>
   );
@@ -112,13 +119,26 @@ function App() {
 
 function CheckList({ selected, items, setItems }) {
   const [index, setIndex] = useState(0);
-  // const [items, setItems] = useState(mergeLists(selected));
+  const [hidePacked, setHidePacked] = useState(false);
+  const [hideDontNeed, setHideDontNeed] = useState(false);
 
   const nextItem = () => {
-    setIndex((index + 1) % items.length);
+    for (let i = 1; i < items.length; i++) {
+      const item = (index + i) % items.length;
+      if (items[item].state === ItemState.ToDo) {
+        setIndex(item);
+        break;
+      }
+    }
   }
   const prevItem = () => {
-    setIndex((index - 1 + items.length) % items.length);
+    for (let i = 1; i < items.length; i++) {
+      const item = (index - i + items.length) % items.length;
+      if (items[item].state === ItemState.ToDo) {
+        setIndex(item);
+        break;
+      }
+    }
   }
   const markPacked = () => {
     setItems(updateItem(items, index, ItemState.Packed));
@@ -131,12 +151,17 @@ function CheckList({ selected, items, setItems }) {
     nextItem();
   }
 
+  const togglePacked = () => { setHidePacked(!hidePacked); }
+  const toggleDontNeed = () => { setHideDontNeed(!hideDontNeed); }
+
   return (
     <>
       <ItemList
         items={items}
         currentIndex={index}
         setIndex={setIndex}
+        hidePacked={hidePacked}
+        hideDontNeed={hideDontNeed}
         />
       <ControlPanel
         currentName={items[index].name}
@@ -144,6 +169,8 @@ function CheckList({ selected, items, setItems }) {
         prev={prevItem}
         markPacked={markPacked}
         markUnneeded={markUnneeded}
+        togglePacked={togglePacked}
+        toggleDontNeed={toggleDontNeed}
         />
     </>
   );
