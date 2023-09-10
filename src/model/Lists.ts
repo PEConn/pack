@@ -74,6 +74,7 @@ export const lists :{ [key: string]: string[] } = {
         'watch charger',
         'work laptop charger',
         'work laptop',
+	'hdmi cable',
     ],
 
     "Clothes - Basic": [
@@ -119,6 +120,7 @@ export const lists :{ [key: string]: string[] } = {
         'swim cap',
         'swim suit',
         'towel',
+	'water shoes',
     ],
 
     "Clothes - Casual": [
