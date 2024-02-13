@@ -42,6 +42,8 @@ export const lists :{ [key: string]: string[] } = {
         'money belt',
         'plastic bags',
         'purse',
+	'sandwich bags',
+	'banana case'
     ],
 
     "Laundry": [
@@ -53,7 +55,7 @@ export const lists :{ [key: string]: string[] } = {
     "Misc": [
         'house keys',
         'travel lock and keys',
-        'umbrella',
+        'umbrella'
     ],
 
     "Tech": [
@@ -157,7 +159,7 @@ export const lists :{ [key: string]: string[] } = {
     ],
 
     "Dental Care": [
-        'dental floos',
+        'dental floss',
         'gum guard',
         'toothbrush',
         'toothpaste',
