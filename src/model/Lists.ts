@@ -42,8 +42,8 @@ export const lists :{ [key: string]: string[] } = {
         'money belt',
         'plastic bags',
         'purse',
-	'sandwich bags',
-	'banana case'
+        'sandwich bags',
+        'banana case'
     ],
 
     "Laundry": [
@@ -61,7 +61,7 @@ export const lists :{ [key: string]: string[] } = {
     "Tech": [
         'alarm clock',
         'batteries',
-        'camera charter',
+        'camera charger',
         'camera',
         'headphones',
         'laptop charger',
@@ -76,7 +76,7 @@ export const lists :{ [key: string]: string[] } = {
         'watch charger',
         'work laptop charger',
         'work laptop',
-	'hdmi cable',
+    	'hdmi cable',
     ],
 
     "Clothes - Basic": [
@@ -89,6 +89,7 @@ export const lists :{ [key: string]: string[] } = {
     "Clothes - Basic (women)": [
         'bra',
         'tights',
+        'pregnancy shorts'
     ],
 
     "Clothes - Formal": [
@@ -122,7 +123,7 @@ export const lists :{ [key: string]: string[] } = {
         'swim cap',
         'swim suit',
         'towel',
-	'water shoes',
+    	'water shoes',
     ],
 
     "Clothes - Casual": [
