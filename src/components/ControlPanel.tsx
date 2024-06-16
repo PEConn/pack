@@ -22,7 +22,7 @@ function ControlPanel({
 
   return (
     <>
-      <div>
+      <div className="hide-for-print">
         <div className="center-content">
           <p className="cog" onClick={() => { setShowSettings(!showSettings)}}>⚙️</p>
           <p className="current-item">
