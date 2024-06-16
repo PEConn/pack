@@ -96,8 +96,6 @@ function App() {
 
   const base = import.meta.env.BASE_URL;
 
-  console.log(base);
-
   return (
     <>
       <Router basename={base}>
