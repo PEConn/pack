@@ -17,6 +17,8 @@ export const lists :{ [key: string]: string[] } = {
         'cash',
         'credit cards',
         'wallet',
+'foreign money',
+'change wallet',
     ],
 
     "Travel Info": [
