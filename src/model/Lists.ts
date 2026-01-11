@@ -57,7 +57,8 @@ export const lists :{ [key: string]: string[] } = {
     "Misc": [
         'house keys',
         'travel lock and keys',
-        'umbrella'
+        'umbrella',
+        'lighter'
     ],
 
     "Tech": [
@@ -218,6 +219,7 @@ export const lists :{ [key: string]: string[] } = {
         'tea bags',
         'travel wash',
         'vitamins',
+        'sewing kit'
     ],
 
     "Ski": [
